@@ -34,16 +34,23 @@ function Register() {
                 }
             );
             console.log(response.data);
-            navigate('/login');
+            navigate('/');
         } catch (error) {
             console.log(error);
         }
     };
 
+    const handleInputChange = (field, value) => {
+        setFormData((prevState) => ({
+            ...prevState,
+            [field]: value,
+        }));
+    };
+
     return (
         <div className="register-container">
             <h1>Ingresa tus datos</h1>
-            <form>
+            <form onSubmit={handleSubmit}>
                 <div className="form-group">
                     <label>Nombre</label>
                     <input
@@ -52,11 +59,7 @@ function Register() {
                         name="firstName"
                         placeholder="Juan"
                         value={formData.firstName}
-                        onInput={(event) => {
-                            setFormData((prevState) => {
-                                return { ...prevState, firstName: event.target.value };
-                            });
-                        }}
+                        onChange={(event) => handleInputChange('firstName', event.target.value)}
                         required
                     />
                 </div>
@@ -68,11 +71,7 @@ function Register() {
                         name="lastName"
                         placeholder="Pérez"
                         value={formData.lastName}
-                        onInput={(event) => {
-                            setFormData((prevState) => {
-                                return { ...prevState, lastName: event.target.value };
-                            });
-                        }}
+                        onChange={(event) => handleInputChange('lastName', event.target.value)}
                         required
                     />
                 </div>
@@ -84,11 +83,7 @@ function Register() {
                         name="address"
                         placeholder="Calle 123"
                         value={formData.address}
-                        onInput={(event) => {
-                            setFormData((prevState) => {
-                                return { ...prevState, address: event.target.value };
-                            });
-                        }}
+                        onChange={(event) => handleInputChange('address', event.target.value)}
                         required
                     />
                 </div>
@@ -100,11 +95,7 @@ function Register() {
                         name="phone"
                         placeholder="091234567"
                         value={formData.phone}
-                        onInput={(event) => {
-                            setFormData((prevState) => {
-                                return { ...prevState, phone: event.target.value };
-                            });
-                        }}
+                        onChange={(event) => handleInputChange('phone', event.target.value)}
                         required
                     />
                 </div>
@@ -116,11 +107,7 @@ function Register() {
                         name="email"
                         placeholder="customer@server.com"
                         value={formData.email}
-                        onInput={(event) => {
-                            setFormData((prevState) => {
-                                return { ...prevState, email: event.target.value };
-                            });
-                        }}
+                        onChange={(event) => handleInputChange('email', event.target.value)}
                         required
                     />
                 </div>
@@ -132,11 +119,7 @@ function Register() {
                         name="password"
                         placeholder="••••••••"
                         value={formData.password}
-                        onInput={(event) => {
-                            setFormData((prevState) => {
-                                return { ...prevState, password: event.target.value };
-                            });
-                        }}
+                        onChange={(event) => handleInputChange('password', event.target.value)}
                         required
                     />
                 </div>
