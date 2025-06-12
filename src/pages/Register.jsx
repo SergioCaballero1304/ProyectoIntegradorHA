@@ -128,7 +128,7 @@ function Register() {
                 </button>
             </form>
             <p>
-                ¿Ya tienes cuenta? <Link to="/login">Inicia sesión aquí</Link>
+                ¿Ya tienes cuenta? <Link to="/">Inicia sesión aquí</Link>
             </p>
         </div>
     );

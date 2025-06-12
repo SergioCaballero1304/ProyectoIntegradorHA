@@ -15,6 +15,7 @@ body {
   align-items: center;
   min-width: 320px;
   min-height: 100vh;
+  overflow-x: hidden;
 }
 
 nav ul {
@@ -88,18 +89,78 @@ form {
   color: black;
 } 
 
+section {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding-top: 300px;
+  padding-bottom: 300px;
+  margin-bottom: 40px;
+  position: relative;
+}
 
-/* @media (prefers-color-scheme: light) {
-  :root {
-    color: #213547;
-    background-color: #ffffff;
-  }
-  a:hover {
-    color: #747bff;
-  }
-  button {
-    background-color: #f9f9f9;
-  }
-} */
+section input {
+  font-size: 1.5rem;
+  border: 1px solid gray;
+  border-radius: 20px;
+  padding: 10px 10px 10px 50px;
+}
 
+section::before {
+  content: '';
+  position: absolute;
+  top: -50px;
+  left: -50px;
+  right: -50px;
+  bottom: 0;
+  background-image: url(./assets/movie-banner.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  opacity: 0.3;
+  z-index: 0;
+}
 
+.cards {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 16px;
+  max-width: 60%;
+  margin: 0 auto;
+  padding: 0;
+}
+
+.movies {
+  width: 22%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0;
+}
+
+.movie-poster {
+  width: 100%;
+  object-fit: cover;
+  margin: 0;
+  transition: transform 0.4s, filter 0.4s, z-index 0s 0.1s;
+  z-index: 0;
+  position: relative;
+}
+
+.cards .movies {
+  transition: filter 0.4s;
+}
+
+.cards:has(.movie-poster:hover) .movie-poster:not(:hover) {
+  filter: blur(3px) grayscale(50%); 
+}
+
+.movie-poster:hover {
+  transform: rotateZ(-5deg) scale(1.15);
+  z-index: 10;
+  transition: transform 0.4s, filter 0.4s;
+}
