@@ -18,14 +18,6 @@ body {
   overflow-x: hidden;
 }
 
-nav ul {
-  display: flex;
-  justify-content: center;
-  list-style: none;
-  gap: 20px;
-  padding: 0;
-}
-
 .container {
   display: flex;
   flex-direction: column;
@@ -100,13 +92,6 @@ section {
   position: relative;
 }
 
-section input {
-  font-size: 1.5rem;
-  border: 1px solid gray;
-  border-radius: 20px;
-  padding: 10px 10px 10px 50px;
-}
-
 section::before {
   content: '';
   position: absolute;
@@ -121,6 +106,28 @@ section::before {
   background-attachment: fixed;
   opacity: 0.3;
   z-index: 0;
+  pointer-events: none;
+}
+
+.search {
+  position: relative;
+}
+
+.search input {
+  font-size: 1.5rem;
+  border: 1px solid gray;
+  border-radius: 20px;
+  padding: 10px 10px 10px 50px;
+  background-color: rgba(40, 40, 40, 0.5);
+}
+
+.movie-icon {
+  top: 7px;
+  left: 15px;
+  font-size: 25px;
+  position: absolute;
+  color: gray;
+  pointer-events: none;
 }
 
 .cards {
@@ -163,4 +170,50 @@ section::before {
   transform: rotateZ(-5deg) scale(1.15);
   z-index: 10;
   transition: transform 0.4s, filter 0.4s;
+}
+
+header {
+  background-color: rgba(0, 0, 0, 0.3);
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 11;
+  height: 70px;
+  display: flex;
+  align-items: center;
+  padding: 0 40px;
+}
+
+nav {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  align-items: center;
+  width: 100%;
+  max-width: 58%;
+  margin: 0 auto;
+  padding: 0;
+  position: static;
+}
+
+.home {
+  text-decoration: none;
+  color: white;
+  margin-right: 20px;
+}
+
+.about {
+  text-decoration: none;
+  color: white;
+}
+
+footer {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  margin: 60px;
+  max-width: 100%;
+  padding-bottom: 20px;
 }

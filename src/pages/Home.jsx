@@ -16,7 +16,10 @@ function Home() {
         <>
             <main>
                 <section>
-                    <input type="text" placeholder="¿Que te gustaría ver?" />
+                    <div className="search">
+                        <i className="bi bi-search movie-icon"></i>
+                        <input type="text" placeholder="¿Que te gustaría ver?" />
+                    </div>
                 </section>
                 <div className="cards">
                     {movies.map((movie) => {
