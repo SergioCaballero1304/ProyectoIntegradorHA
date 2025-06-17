@@ -208,6 +208,26 @@ nav {
   color: white;
 }
 
+.movie-detail {
+  min-height: 100vh;
+}
+
+.movie-detail-image {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  min-height: 100vh;
+  width: 100vw;
+}
+
+.movie-detail-info {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 100%;
+  max-width: 58%;
+}
+
 footer {
   display: flex;
   flex-direction: row;

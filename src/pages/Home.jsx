@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import axios from 'axios';
+import { Link } from 'react-router';
 
 function Home() {
     const [movies, setMovies] = useState([]);
@@ -25,15 +26,18 @@ function Home() {
                     {movies.map((movie) => {
                         return (
                             <div className="movies" key={movie.id}>
-                                <img
-                                    src={`https://image.tmdb.org/t/p/w500/${movie.poster_path}`}
-                                    alt={movie.title}
-                                    className="movie-poster"
-                                />
+                                <Link to={`/detail/` + movie.id} key={movie.id}>
+                                    <img
+                                        src={`https://image.tmdb.org/t/p/w500/${movie.poster_path}`}
+                                        alt={movie.title}
+                                        className="movie-poster"
+                                    />
+                                </Link>
                             </div>
                         );
                     })}
                 </div>
+                <footer>Sergio Caballero, 2025</footer>
             </main>
         </>
     );
