@@ -1,3 +1,7 @@
+* {
+  box-sizing: border-box;
+}
+
 :root {
   font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
@@ -9,8 +13,9 @@
 } 
 
 body {
-  margin: 0;
   display: flex;
+  font-family: Arial;
+  margin: 0;
   justify-content: center;
   align-items: center;
   min-width: 320px;
@@ -80,6 +85,51 @@ form {
   background-color: white;
   color: black;
 } 
+
+header {
+  background-color: rgba(0, 0, 0, 0.3);
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 11;
+  height: 70px;
+  display: flex;
+  align-items: center;
+  padding: 0 40px;
+}
+
+nav {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  max-width: 58%;
+  margin: 0 auto;
+  padding: 0;
+  position: static;
+}
+
+.home {
+  text-decoration: none;
+  color: white;
+  margin-right: 20px;
+}
+
+.about {
+  text-decoration: none;
+  color: white;
+}
+
+.brand {
+  font-weight: 900;
+  font-size: 1.5rem;
+}
+
+.brand span {
+  color: #ad0000;
+}
 
 section {
   display: flex;
@@ -172,41 +222,6 @@ section::before {
   transition: transform 0.4s, filter 0.4s;
 }
 
-header {
-  background-color: rgba(0, 0, 0, 0.3);
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  z-index: 11;
-  height: 70px;
-  display: flex;
-  align-items: center;
-  padding: 0 40px;
-}
-
-nav {
-  display: flex;
-  flex-direction: row;
-  justify-content: flex-end;
-  align-items: center;
-  width: 100%;
-  max-width: 58%;
-  margin: 0 auto;
-  padding: 0;
-  position: static;
-}
-
-.home {
-  text-decoration: none;
-  color: white;
-  margin-right: 20px;
-}
-
-.about {
-  text-decoration: none;
-  color: white;
-}
 
 .movie-detail {
   min-height: 100vh;
@@ -226,6 +241,30 @@ nav {
   justify-content: center;
   width: 100%;
   max-width: 58%;
+  margin: 0 auto;
+  padding: 0 40px;
+  box-sizing: border-box;
+}
+
+.movie-detail-info h1 {
+  margin-bottom: 20px;
+  font-size: 2.5rem;
+}
+
+.movie-span {
+  display: flex;
+  flex-wrap: wrap;
+  margin-bottom: 20px;
+}
+
+.movie-detail-info span {
+  margin-right: 10px;
+}
+
+.movie-detail-info p {
+  margin-top: 20px;
+  line-height: 1.6;
+  font-size: 1.1rem;
 }
 
 footer {

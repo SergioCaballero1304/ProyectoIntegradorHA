@@ -11,12 +11,17 @@ function App() {
         <>
             <header>
                 <nav>
-                    <Link to="/home" className="home">
-                        Home
-                    </Link>
-                    <Link to="/about" className="about">
-                        Sobre este proyecto
-                    </Link>
+                    <div className="brand">
+                        VIDEO<span>CLUB</span>
+                    </div>
+                    <div className="pages">
+                        <Link to="/home" className="home">
+                            Home
+                        </Link>
+                        <Link to="/about" className="about">
+                            Sobre este proyecto
+                        </Link>
+                    </div>
                 </nav>
             </header>
 

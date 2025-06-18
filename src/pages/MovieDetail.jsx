@@ -34,9 +34,13 @@ function MovieDetail() {
                 >
                     <div className="movie-detail-info">
                         <h1>{movieDetail.title}</h1>
-                        <span>Date: {movieDetail.release_date} | </span>
-                        <span>Language: {movieDetail.original_language?.toUpperCase()} | </span>
-                        <span>Rating: {movieDetail.vote_average}</span>
+                        <div className="movie-span">
+                            <span>Date: {movieDetail.release_date}</span>
+                            <span> | </span>
+                            <span>Language: {movieDetail.original_language?.toUpperCase()}</span>
+                            <span> | </span>
+                            <span>Rating: {movieDetail.vote_average}</span>
+                        </div>
                         <p>{movieDetail.overview}</p>
                     </div>
                 </div>
