@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import axios from 'axios';
 import { Link } from 'react-router';
+import Nav from '../components/Nav';
 
 function Home() {
     const [movies, setMovies] = useState([]);
@@ -16,6 +17,7 @@ function Home() {
     return (
         <>
             <main>
+                <Nav />
                 <section>
                     <div className="search">
                         <i className="bi bi-search movie-icon"></i>

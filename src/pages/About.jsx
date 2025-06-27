@@ -1,5 +1,12 @@
+import Nav from '../components/Nav';
+
 function About() {
-    return <h1>Sobre este proyecto</h1>;
+    return (
+        <>
+            <Nav />
+            <h1>Sobre este proyecto</h1>
+        </>
+    );
 }
 
 export default About;
