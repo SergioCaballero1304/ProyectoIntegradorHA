@@ -24,6 +24,10 @@ function Login() {
                 password: formData.password,
             });
 
+            if (!response.data.token) {
+                throw new Error(response.data.message);
+            }
+
             dispatch(
                 loginSuccess({
                     token: response.data.token,
@@ -53,7 +57,7 @@ function Login() {
             <form onSubmit={handleSubmit}>
                 <div className="form-group">
                     <label>
-                        Correo:
+                        Correo electrónico:
                         <br />
                         <input
                             type="text"

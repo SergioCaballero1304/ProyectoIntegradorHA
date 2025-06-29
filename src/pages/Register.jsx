@@ -100,7 +100,7 @@ function Register() {
                     />
                 </div>
                 <div className="form-group">
-                    <label>Correo</label>
+                    <label>Correo electrónico</label>
                     <input
                         type="email"
                         id="registerEmail"

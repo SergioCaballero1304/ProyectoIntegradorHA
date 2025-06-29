@@ -18,6 +18,9 @@ function Nav() {
                     <Link to="/about" className="about">
                         Sobre este proyecto
                     </Link>
+                    <Link to="/profile" className="profile">
+                        Perfil
+                    </Link>
                     <CartButton />
                 </div>
             </nav>

@@ -25,6 +25,7 @@ function CartButton() {
             <div className={`overlay ${isOpen ? 'show' : ''}`} onClick={closeOffCanvas} />
             <div className={`offcanvas ${isOpen ? 'show' : ''}`}>
                 <h1>Carrito ({cart.reduce((total, movie) => total + (movie.quantity || 1), 0)} item)</h1>
+                <i className="bi bi-x-lg" onClick={closeOffCanvas} style={{ cursor: 'pointer' }}></i>
                 <div className="cart-item">
                     {cart.length === 0 ? (
                         <p>El carrito está vacío</p>
@@ -38,8 +39,9 @@ function CartButton() {
                                 />
                                 <h2>{movie.title}</h2>
                                 <p>
-                                    Precio: ${movie.vote_average ? (movie.vote_average * 30).toFixed(0) : 0} Cantidad:{' '}
-                                    {movie.quantity}
+                                    Precio: $
+                                    {movie.vote_average ? (movie.vote_average * 30 * movie.quantity).toFixed(0) : 0}{' '}
+                                    Cantidad: {movie.quantity}
                                 </p>
                                 <i
                                     className="bi bi-trash"
@@ -51,6 +53,17 @@ function CartButton() {
                         ))
                     )}
                 </div>
+                <hr />
+                <p>
+                    Total: $
+                    {cart
+                        .reduce(
+                            (total, movie) =>
+                                total + (movie.vote_average ? movie.vote_average * 30 : 0) * (movie.quantity || 1),
+                            0
+                        )
+                        .toFixed(0)}
+                </p>
             </div>
         </>
     );
