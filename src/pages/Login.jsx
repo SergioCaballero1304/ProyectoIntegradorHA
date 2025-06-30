@@ -3,6 +3,7 @@ import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { loginStart, loginSuccess, loginFailure } from '../store/authSlice';
 import axios from 'axios';
+import { toast } from 'react-toastify';
 
 function Login() {
     const navigate = useNavigate();
@@ -37,8 +38,11 @@ function Login() {
                     },
                 })
             );
-
-            navigate('/home');
+            toast.success('Iniciaste sesión correctamente.', {
+                position: 'top-center',
+                autoClose: 2000,
+            });
+            navigate('/');
         } catch (error) {
             dispatch(loginFailure(error.response?.data?.message || 'Error al iniciar sesión'));
         }
@@ -86,7 +90,10 @@ function Login() {
                     {loading ? 'Iniciando' : 'Iniciar Sesión'}
                 </button>
                 <p>
-                    ¿No tienes cuenta? <Link to="/register">Registrate aquí.</Link>
+                    ¿No tienes cuenta?{' '}
+                    <Link to="/register" className="register-link">
+                        Registrate aquí
+                    </Link>
                 </p>
             </form>
         </div>

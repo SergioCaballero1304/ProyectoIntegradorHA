@@ -5,6 +5,7 @@ import { addToCart } from '../store/cartSlice';
 import Nav from '../components/Nav';
 import axios from 'axios';
 import '../App.css';
+import { toast } from 'react-toastify';
 
 function MovieDetail() {
     const [movieDetail, setMovieDetail] = useState({});
@@ -29,6 +30,14 @@ function MovieDetail() {
                 }
             });
     }, []);
+
+    const handleAddToCart = () => {
+        dispatch(addToCart(movieDetail));
+        toast.success(`${movieDetail.title} se agregó al carrito`, {
+            position: 'top-center',
+            autoClose: 2000,
+        });
+    };
 
     return (
         <>
@@ -61,13 +70,22 @@ function MovieDetail() {
                         </div>
                         <p>{movieDetail.overview}</p>
                         <div className="movie-icons">
-                            <a href={`https://www.youtube.com/embed/${movieTeaser.key}`} style={{ color: 'white' }}>
+                            <a
+                                href={`https://www.youtube.com/embed/${movieTeaser.key}`}
+                                style={{ color: 'white' }}
+                                title="Ver tráiler"
+                            >
                                 <i className="bi bi-film icons"></i>
                             </a>
-                            <i className="bi bi-play-circle-fill icons"></i>
+                            <i
+                                className="bi bi-play-circle-fill icons"
+                                title="Reproducir película"
+                                style={{ cursor: 'pointer' }}
+                            ></i>
                             <i
                                 className="bi bi-cart-plus-fill icons"
-                                onClick={() => dispatch(addToCart(movieDetail))}
+                                onClick={handleAddToCart}
+                                title="Agregar al carrito"
                                 style={{ cursor: 'pointer' }}
                             ></i>
                             <span className="movie-price">{`$${(movieDetail.vote_average * 30).toFixed(0)}`}</span>

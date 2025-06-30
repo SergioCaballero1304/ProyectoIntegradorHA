@@ -1,12 +1,13 @@
 import { useState } from 'react';
 import { useNavigate, Link } from 'react-router';
+import { toast } from 'react-toastify';
 import axios from 'axios';
 
 function Register() {
     const navigate = useNavigate();
     const [formData, setFormData] = useState({
-        firstName: '',
-        lastName: '',
+        firstname: '',
+        lastname: '',
         address: '',
         phone: '',
         email: '',
@@ -20,8 +21,8 @@ function Register() {
             const response = await axios.post(
                 'https://ha-videoclub-api-g1.vercel.app/users',
                 {
-                    firstName: formData.firstName,
-                    lastName: formData.lastName,
+                    firstname: formData.firstname,
+                    lastname: formData.lastname,
                     address: formData.address,
                     phone: formData.phone,
                     email: formData.email,
@@ -33,8 +34,11 @@ function Register() {
                     },
                 }
             );
-            console.log(response.data);
-            navigate('/');
+            toast.success('Cuenta creada correctamente.', {
+                position: 'top-center',
+                autoClose: 2000,
+            });
+            navigate('/login');
         } catch (error) {
             console.log(error);
         }
@@ -58,8 +62,8 @@ function Register() {
                         id="firstName"
                         name="firstName"
                         placeholder="Juan"
-                        value={formData.firstName}
-                        onChange={(event) => handleInputChange('firstName', event.target.value)}
+                        value={formData.firstname}
+                        onChange={(event) => handleInputChange('firstname', event.target.value)}
                         required
                     />
                 </div>
@@ -70,8 +74,8 @@ function Register() {
                         id="lastName"
                         name="lastName"
                         placeholder="Pérez"
-                        value={formData.lastName}
-                        onChange={(event) => handleInputChange('lastName', event.target.value)}
+                        value={formData.lastname}
+                        onChange={(event) => handleInputChange('lastname', event.target.value)}
                         required
                     />
                 </div>
@@ -128,7 +132,10 @@ function Register() {
                 </button>
             </form>
             <p>
-                ¿Ya tienes cuenta? <Link to="/">Inicia sesión aquí</Link>
+                ¿Ya tienes cuenta?{' '}
+                <Link to="/login" className="login-link">
+                    Inicia sesión aquí
+                </Link>
             </p>
         </div>
     );

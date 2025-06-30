@@ -18,7 +18,7 @@ function Home() {
         <>
             <main>
                 <Nav />
-                <section>
+                <section className="home-section">
                     <div className="search">
                         <i className="bi bi-search movie-icon"></i>
                         <input type="text" placeholder="¿Que te gustaría ver?" />
@@ -39,8 +39,8 @@ function Home() {
                         );
                     })}
                 </div>
-                <footer>Sergio Caballero, 2025</footer>
             </main>
+            <footer>Sergio Caballero, 2025</footer>
         </>
     );
 }
